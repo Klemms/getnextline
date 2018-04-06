@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 17:10:41 by cababou           #+#    #+#             */
-/*   Updated: 2018/03/03 05:36:15 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/16 04:29:03 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/26 03:50:51 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list *lst)
+t_list	*ft_lstget(size_t index, t_list *anyelement)
 {
-	t_list	*element;
-	t_list	*tmp;
+	t_list	*el;
 
-	if (lst)
+	el = ft_lstgetfirst(anyelement);
+	while (el != NULL)
 	{
-		tmp = ft_lstgetfirst(lst);
-		element = tmp;
-		while (element)
-		{
-			if (element->content)
-				free(element->content);
-			tmp = element->next ? element->next : NULL;
-			free(element);
-			element = tmp;
-		}
+		if (el->index == index)
+			return (el);
+		el = el->next;
 	}
+	return (NULL);
 }

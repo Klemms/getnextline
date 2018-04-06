@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 17:28:10 by cababou           #+#    #+#             */
-/*   Updated: 2018/01/12 19:10:08 by cababou          ###   ########.fr       */
+/*   Updated: 2018/04/06 23:07:50 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		readfile(const int fd)
 	while ((bytesread = read(fd, strbuffer, BUFF_SIZE)) > 0)
 	{
 		strbuffer[bytesread] = '\0';
-		g_str = ft_strjoin(g_str, strbuffer);
+		g_str = ft_strjoin(g_str, strbuffer, 0);
 	}
 	if (bytesread == -1 && errno == EBADF)
 		return (0);
@@ -54,12 +54,12 @@ char	*ft_getline(size_t line)
 			if (currentline != line || cpystart == i)
 				return (NULL);
 			else
-				return (ft_strsub(g_str, cpystart, i - cpystart));
+				return (ft_strsub(g_str, cpystart, i - cpystart, 0));
 		}
 		if (g_str[i] == '\n')
 		{
 			if (currentline == line)
-				return (ft_strsub(g_str, cpystart, i - cpystart));
+				return (ft_strsub(g_str, cpystart, i - cpystart, 0));
 			currentline++;
 			cpystart = i + 1;
 		}

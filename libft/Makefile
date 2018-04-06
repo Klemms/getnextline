@@ -6,7 +6,7 @@
 #    By: cababou <cababou@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/02 18:27:43 by cababou           #+#    #+#              #
-#    Updated: 2018/01/11 19:12:31 by cababou          ###   ########.fr        #
+#    Updated: 2018/02/17 05:39:31 by cababou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,15 @@ SRC =		ft_atoi.c \
 	ft_lstmap.c \
 	ft_strrev.c \
 	ft_lstgetfirst.c \
-	ft_lstgetlast.c
+	ft_lstgetlast.c \
+	ft_lstdel.c \
+	ft_lstget.c \
+	ft_strsubuntilchar.c \
+	ft_lstswap.c \
+	listcontainer_new.c \
+	listcontainer_addelement.c \
+	listcontainer_removeelement.c \
+	listcontainer_size.c
 
 OBJ = $(SRC:.c=.o)
 

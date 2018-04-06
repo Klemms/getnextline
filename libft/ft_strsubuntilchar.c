@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strsubuntilchar.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 17:10:41 by cababou           #+#    #+#             */
-/*   Updated: 2018/03/03 05:36:15 by cababou          ###   ########.fr       */
+/*   Created: 2018/02/16 07:13:45 by cababou           #+#    #+#             */
+/*   Updated: 2018/02/17 05:37:29 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list *lst)
+char	*ft_strsubuntilchar(char const *str, size_t start, char end_char)
 {
-	t_list	*element;
-	t_list	*tmp;
+	char	*newstring;
+	size_t	i;
 
-	if (lst)
+	newstring = ft_strnew(0);
+	i = start;
+	while (str[i] != end_char)
 	{
-		tmp = ft_lstgetfirst(lst);
-		element = tmp;
-		while (element)
-		{
-			if (element->content)
-				free(element->content);
-			tmp = element->next ? element->next : NULL;
-			free(element);
-			element = tmp;
-		}
+		newstring = ft_strjoin(newstring, ft_strsub(str, i, i + 1, 0), 1);
+		i++;
 	}
+	return (newstring);
 }
