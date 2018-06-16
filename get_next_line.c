@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 13:50:57 by cababou           #+#    #+#             */
-/*   Updated: 2018/06/04 17:07:13 by cababou          ###   ########.fr       */
+/*   Updated: 2018/06/16 21:06:33 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,22 @@ int		get_next_line(const int fd, char **line)
 {
 	static t_lstcontainer	*files;
 	t_list					*current_element;
-	t_file					*current_file;
 	char					*read_line;
 
 	if (files == NULL)
 		files = lstcontainer_new();
+	if (fd < 0)
+		return (-1);
 	current_element = get_element_by_fd(files, fd);
-	current_file = (t_file *)current_element->content;
-	read_line = get_line(current_file);
+	read_line = get_line((t_file *)current_element->content);
 	if (read_line == NULL)
 	{
-		if (current_file->end == -1)
+		if (((t_file *)current_element->content)->end == -1)
 		{
 			files->remove(current_element);
 			return (-1);
 		}
-		else if (current_file->end == 1)
+		else if (((t_file *)current_element->content)->end == 1)
 		{
 			files->remove(current_element);
 			return (0);
