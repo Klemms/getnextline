@@ -6,7 +6,7 @@
 /*   By: cababou <cababou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 13:50:57 by cababou           #+#    #+#             */
-/*   Updated: 2018/06/16 21:06:33 by cababou          ###   ########.fr       */
+/*   Updated: 2018/06/17 01:19:19 by cababou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*get_line(t_file *current_file)
 	{
 		return_string = ft_strsub(current_file->content, 0, l_position, 0);
 		current_file->content = ft_strsub(current_file->content, l_position + 1,
-						ft_strlen(current_file->content) - l_position + 1, 1);
+						ft_strlen(current_file->content) - l_position, 1);
 		return (return_string);
 	}
 	else
